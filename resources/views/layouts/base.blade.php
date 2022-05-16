@@ -9,13 +9,21 @@
 
     <!-- Fonts -->
 
+    <!-- include libraries(jQuery, bootstrap) -->
+{{--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">--}}
+{{--    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>--}}
+{{--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>--}}
+
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/summernote.css') }}">
 
     {{--    livewire 태그 : laravel 7 부터 지원--}}
     <livewire:styles>
 {{--    @livewireStyles--}}
-</head>
+
+        </head>
 
 <body>
 
@@ -41,7 +49,11 @@
 </div>
 
 <!-- Scripts -->
-<script src="{{ mix('js/app.js') }}" defer></script>
+<script src="{{ mix('js/app.js') }}"></script>
+{{--<script src="{{ mix('js/app.js') }}" defer></script>--}}
+<script src="{{ mix('js/bootstrap.js') }}"></script>
+<script src="{{ mix('js/summernote.js') }}"></script>
+
 @include('sweetalert::alert')
 
 <livewire:scripts>

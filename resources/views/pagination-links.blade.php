@@ -30,42 +30,44 @@
                 {{--            이전 버튼 종료--}}
 
                 {{--            페이지번호 버튼 시작--}}
-                @foreach($elements as $element)
-                    {{-- "Three Dots" Separator --}}
-{{--                    @if (is_string($element))--}}
-{{--                        <span aria-disabled="true">--}}
-{{--                            <span class="mx-2 w-16 px-2 py-1 text-center rounded border shadow bg-white">--}}
-{{--                                {{ $element }}--}}
-{{--                            </span>--}}
-{{--                        </span>--}}
-{{--                    @endif--}}
+                @if(isset($elements) && is_array($elements))
+                    @foreach($elements as $element)
+                        {{-- "Three Dots" Separator --}}
+    {{--                    @if (is_string($element))--}}
+    {{--                        <span aria-disabled="true">--}}
+    {{--                            <span class="mx-2 w-16 px-2 py-1 text-center rounded border shadow bg-white">--}}
+    {{--                                {{ $element }}--}}
+    {{--                            </span>--}}
+    {{--                        </span>--}}
+    {{--                    @endif--}}
 
-                    @if(is_array($element))
-                        @foreach($element as $page => $url)
-                        <!--  Show active page two pages before and after it.  -->
-                            @if ($page == $paginator->currentPage())
-                                <span class="mx-2 w-10 px-2 py-1 text-center rounded border shadow bg-blue-500 text-white">
-                                    {{ $page }}
-                                </span>
-                            @elseif ($page === $paginator->currentPage() + 1 || $page === $paginator->currentPage() + 2 || $page === $paginator->currentPage() - 1 || $page === $paginator->currentPage() - 2)
-                                <button wire:click="gotoPage({{ $page }})" class="x-2 w-10 px-2 py-1 text-center rounded border shadow bg-white cursor-pointer">
-                                    {{ $page }}
-                                </button>
-                            @endif
+                        @if(is_array($element))
+                            @foreach($element as $page => $url)
+                            <!--  Show active page two pages before and after it.  -->
+                                @if ($page == $paginator->currentPage())
+                                    <span class="mx-2 w-10 px-2 py-1 text-center rounded border shadow bg-blue-500 text-white">
+                                        {{ $page }}
+                                    </span>
+                                @elseif ($page === $paginator->currentPage() + 1 || $page === $paginator->currentPage() + 2 || $page === $paginator->currentPage() - 1 || $page === $paginator->currentPage() - 2)
+                                    <button wire:click="gotoPage({{ $page }})" class="x-2 w-10 px-2 py-1 text-center rounded border shadow bg-white cursor-pointer">
+                                        {{ $page }}
+                                    </button>
+                                @endif
 
-{{--                            @if($page == $paginator->currentPage())--}}
-{{--                                <span class="mx-2 w-10 px-2 py-1 text-center rounded border shadow bg-blue-500 text-white">--}}
-{{--                                    {{ $page }}--}}
-{{--                                </span>--}}
-{{--                            @else--}}
-{{--                                <button wire:click="gotoPage({{ $page }})" class="mx-2 w-10 px-2 py-1 text-center rounded border shadow bg-white cursor-pointer">--}}
-{{--                                    {{ $page }}--}}
-{{--                                </button>--}}
-{{--                            @endif--}}
-                        @endforeach
-                    @endif
+    {{--                            @if($page == $paginator->currentPage())--}}
+    {{--                                <span class="mx-2 w-10 px-2 py-1 text-center rounded border shadow bg-blue-500 text-white">--}}
+    {{--                                    {{ $page }}--}}
+    {{--                                </span>--}}
+    {{--                            @else--}}
+    {{--                                <button wire:click="gotoPage({{ $page }})" class="mx-2 w-10 px-2 py-1 text-center rounded border shadow bg-white cursor-pointer">--}}
+    {{--                                    {{ $page }}--}}
+    {{--                                </button>--}}
+    {{--                            @endif--}}
+                            @endforeach
+                        @endif
 
-                @endforeach
+                    @endforeach
+                @endif
                 {{--            페이지번호 버튼 종료--}}
 
                 {{--            다음 버튼 시작--}}

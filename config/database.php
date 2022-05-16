@@ -55,6 +55,26 @@ return [
             ]) : [],
         ],
 
+        'morningletters' => [
+            'driver' => 'mysql',
+            'url' => env('DATABASE_URL_MORNINGLETTERS'),
+            'host' => env('DB_HOST_MORNINGLETTERS', '127.0.0.1'),
+            'port' => env('DB_PORT_MORNINGLETTERS', '3306'),
+            'database' => env('DB_DATABASE_MORNINGLETTERS', 'forge'),
+            'username' => env('DB_USERNAME_MORNINGLETTERS', 'forge'),
+            'password' => env('DB_PASSWORD_MORNINGLETTERS', ''),
+            'unix_socket' => env('DB_SOCKET_MORNINGLETTERS', ''),
+            'charset' => 'utf8',
+            'collation' => 'utf8_general_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
 //        'sqlite' => [
 //            'driver' => 'sqlite',
 //            'url' => env('DATABASE_URL'),
